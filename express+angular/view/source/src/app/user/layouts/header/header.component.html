@@ -1,0 +1,80 @@
+<header id="page-topbar">
+    <div class="layout-width">
+        <div class="navbar-header">
+            <div class="d-flex flex-row align-items-center">
+                 <div class="me-2 ps-2">
+                        <img  src="assets/images/logo/logo.png" alt="" width="20">
+                </div>
+                <div class="text-primary fs-20 font-family-medium text-uppercase">{{'TCC Technology Control Company' | translate}}</div>
+                <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger" id="topnav-hamburger-icon" (click)="toggleMobileMenu($event)">
+                    <span class="hamburger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+            </div>
+
+            <div class="d-flex align-items-center">
+
+
+                <div class="dropdown ms-1 topbar-head-dropdown header-item" ngbDropdown>
+                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+                        <img src="assets/images/flags/{{core.selectedLanguage?.flag}}.svg" alt="Language" height="20" class="rounded">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <a href="javascript:void(0);" class="dropdown-item notify-item language py-2" data-lang="eng" *ngFor="let language of core.availableLanguages" (click)="onLanguageChange(language)" [ngClass]="{'active': language.code === core.selectedLanguage?.code}">
+                            <img src="assets/images/flags/{{language.flag}}.svg" alt="language" class="me-2 rounded" height="18"> <span class="align-middle">{{language.name}}</span>
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="ms-1 header-item d-none d-sm-flex">
+                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                        data-toggle="fullscreen" (click)="fullscreen()">
+                        <i class='bx bx-fullscreen fs-22'></i>
+                    </button>
+                </div>
+
+                <div class="ms-1 header-item d-none d-sm-flex">
+                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
+                        <i class='bx bx-moon fs-22' (click)="onDarkModeChange('dark')"></i>
+                        <i class='bx bx-sun fs-22' (click)="onDarkModeChange('light')"></i>
+                    </button>
+                </div>
+
+
+
+                <div class="dropdown ms-sm-3 header-item topbar-user" ngbDropdown>
+                    <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+                        <span class="d-flex align-items-center">
+
+                            <img class="rounded-circle header-profile-user" defaultImg alt="Header Avatar" src="assets/images/users/avatar.png">
+                            <span class="text-start ms-xl-2">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{core.user?.name}}</span>
+                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">{{core.user?.role}}</span>
+                            </span>
+                        </span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                        <!-- item-->
+                        <h6 class="dropdown-header">{{'Welcome' | translate}}{{' '}}{{core.user?.name}}</h6>
+                        <a class="dropdown-item" routerLink="/user/lockscreen">
+                            <i class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle">{{'Lock screen' | translate}}</span>
+                        </a>
+                        <a class="dropdown-item" (click)="logout()">
+                            <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle">{{'Logout' | translate}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

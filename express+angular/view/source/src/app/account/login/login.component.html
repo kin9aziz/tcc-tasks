@@ -1,0 +1,103 @@
+<header id="page-header">
+    <div class="layout-width">
+        <div class="navbar-header">
+            <div class="d-flex">
+
+                    <div class="dropdown ms-1 topbar-head-dropdown header-item" ngbDropdown>
+                        <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+                            <img src="assets/images/flags/{{core.selectedLanguage?.flag}}.svg" alt="Language" height="20" class="rounded">
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-start" ngbDropdownMenu>
+                            <a href="javascript:void(0);" class="dropdown-item notify-item language py-2" data-lang="eng" *ngFor="let language of core.availableLanguages" (click)="onLanguageChange(language)" [ngClass]="{'active': language.code === core.selectedLanguage?.code}">
+                                <img src="assets/images/flags/{{language.flag}}.svg" alt="language" class="me-2 rounded" height="18"> <span class="align-middle">{{language.name}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+        </div>
+    </div>
+</header>
+
+
+
+<div class="auth-page-wrapper pt-5">
+  <!-- auth page bg -->
+  <div class="auth-one-bg-position auth-one-bg"  id="auth-particles">
+      <div class="bg-overlay"></div>
+
+      <div class="shape">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 120">
+              <path d="M 0,36 C 144,53.6 432,123.2 720,124 C 1008,124.8 1296,56.8 1440,40L1440 140L0 140z"></path>
+          </svg>
+      </div>
+  </div>
+
+  <!-- auth page content -->
+  <div class="auth-page-content">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="text-center mt-sm-5 mb-4 text-white-50">
+                      <div class="animate__animated animate__bounce animate__repeat-2">
+                          <a routerLink="/" class="d-inline-block auth-logo">
+                              <img src="assets/images/logo/logo-light.png" alt="" height="100">
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- end row -->
+
+          <div class="row justify-content-center">
+              <div class="col-md-8 col-lg-6 col-xl-5">
+                  <div class="card mt-4">
+
+                      <div class="card-body p-4">
+                          <div class="text-center mt-2">
+                              <h5 class="text-primary">{{'TCC' | translate}}</h5>
+                              <p class="text-muted">{{'Sign in to continue to' | translate}}{{' '}}{{'TCC Technology Control Company' | translate}}.</p>
+                          </div>
+                          <div class="p-2 mt-4">
+                              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="email">{{'Email' | translate}}</label>
+                                    <input type="text" class="form-control" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" [placeholder]="'Enter your Email' | translate">
+                                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['email'].errors['required']">{{'Email is required' | translate}}</div>
+                                    </div>
+                                  </div>
+                                  <div class="mb-3">
+                                      <label class="form-label" for="password">{{'Password' | translate}}</label>
+                                      <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" placeholder="*********">
+                                      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                          <div *ngIf="f['password'].errors['required']">{{'Password is required' | translate}}</div>
+                                      </div>
+                                  </div>
+                                  <div class="mt-4">
+                                      <button class="btn btn-primary w-100" type="submit">{{'Sign In' | translate}}</button>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                      <!-- end card body -->
+                  </div>
+
+
+              </div>
+          </div>
+          <!-- end row -->
+      </div>
+      <!-- end container -->
+  </div>
+  <!-- end auth page content -->
+
+  <!-- footer -->
+ <app-footer-account></app-footer-account>
+  <!-- end Footer -->
+</div>
+<!-- end auth-page-wrapper -->
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>

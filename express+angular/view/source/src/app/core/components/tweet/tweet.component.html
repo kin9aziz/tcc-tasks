@@ -1,0 +1,70 @@
+
+  <div class="col-xl-6" *ngIf="type==='single'">
+      <div class="card">
+          <div class="card-header align-items-center d-flex">
+              <h4 class="card-title mb-0 text-muted flex-grow-1 font-family-medium">{{'DASHBOARD.'+title | translate}}</h4>
+              <div class="flex-shrink-0">
+                  <div class="form-check form-switch form-switch-right form-switch-md">
+                      <div class="form-label text-muted font-family-regular">{{'DASHBOARD.View' | translate}}</div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="card-body">
+              <div class="live-preview">
+
+                  <div class="d-flex align-items-start text-muted mb-4">
+                      <div class="flex-shrink-0 me-3">
+                          <img src="assets/images/users/avatar-2.jpg" class="avatar-sm rounded">
+                      </div>
+                      <div class="flex-grow-1">
+                          <h5 class="fs-14">Media heading</h5>
+                          This is some content from a media component. You can replace this with any content and adjust it as needed.
+                      </div>
+                  </div>
+
+              </div>
+          </div><!-- end card-body -->
+      </div><!-- end card -->
+  </div>
+  <!-- end col -->
+
+  <div class="col-xl-6" *ngIf="type==='multi'">
+      <div class="card">
+          <div class="card-header">
+                  <div class="d-flex align-items-start text-muted">
+                      <div class="flex-shrink-0 me-3">
+                          <img src="assets/images/users/avatar-2.jpg" class="avatar-sm rounded-circle" alt="...">
+                      </div>
+                      <div class="flex-grow-1">
+                          <h5 class="fs-14 font-family-medium">Media heading</h5>
+                          <p class="font-family-regular">This is some content from a media component. You can replace this with any content and adjust it as needed</p>
+                      </div>
+                  </div>
+          </div>
+
+          <div class="card-body">
+              <marquee direction="down" scrolldelay="600"  width="100%" scrollamount="3" behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()">
+                <div class="d-flex align-items-start text-muted">
+                  <div class="flex-shrink-0 me-3">
+                      <img src="assets/images/users/avatar-2.jpg" class="avatar-sm rounded-circle" alt="...">
+                  </div>
+                  <div class="flex-grow-1">
+                      <h5 class="fs-14 font-family-medium">Media heading</h5>
+                      <p class="font-family-regular">This is some content from a media component. You can replace this with any content and adjust it as needed</p>
+                  </div>
+              </div>
+                <div class="d-flex align-items-start text-muted">
+                      <div class="flex-shrink-0 me-3">
+                          <img src="assets/images/users/avatar-2.jpg" class="avatar-sm rounded-circle" alt="...">
+                      </div>
+                      <div class="flex-grow-1">
+                          <h5 class="fs-14 font-family-medium">Media heading</h5>
+                          <p class="font-family-regular">This is some content from a media component. You can replace this with any content and adjust it as needed</p>
+                      </div>
+                  </div>
+              </marquee>
+          </div><!-- end card-body -->
+      </div><!-- end card -->
+  </div>
+
